@@ -1,10 +1,5 @@
 #Bit.ly api script
 #this is for passing some long URL's into a much smaller format.
-
-#This grabs a bit.ly url for the long last.fm url it works if you want to uncomment it.
-#use your own login and key
-#bit.ly keeps going down so i'm disabling it.
-
 sub bitly {
 	my ($url) = @_;
 	#this strips out the odd characters in the url.

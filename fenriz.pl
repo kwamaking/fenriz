@@ -25,6 +25,7 @@ do $ENV{"HOME"}."/fenriz/scripts/lastfm.pl";
 do $ENV{"HOME"}."/fenriz/scripts/weather.pl";
 do $ENV{"HOME"}."/fenriz/scripts/checksite.pl";
 do $ENV{"HOME"}."/fenriz/scripts/help.pl";
+do $ENV{"HOME"}."/fenriz/scripts/wiki.pl";
 #messaging module sends data to irssi
 do $ENV{"HOME"}."/fenriz/modules/messaging.pl";
 #bit.ly url shortner api
@@ -51,6 +52,9 @@ sub message_public {
 		}
 		when (m/\~ud/i) {
 			urbandict($server, $target, @cmd);
+		}
+		when (m/\~wiki/i) {
+			wiki($server, $target, @cmd);
 		}
 		when (m/\~help/i) {
 			help($server, $target, $nick, @cmd);

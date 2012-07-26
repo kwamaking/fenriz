@@ -1,6 +1,4 @@
 #UrbanDictionary script
-#this uses Mojo::DOM rather than their API
-#will be using their json soap api soon. 
 sub urbandict {
 	my ($server, $target, @cmd) = @_;
 	if (!$cmd[1]) {
