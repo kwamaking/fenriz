@@ -26,7 +26,7 @@ sub wiki {
 				$entry .= ' For more information visit: '.$tinyurl;
 			}
 			else {
-				$entry = $decoded_content->{'query'}{'pages'}{$page[0]}{'title'}.': '.$decoded_content->{'query'}{'pages'}{$page[0]}{'extract'}; 
+				$entry = $decoded_content->{'query'}{'pages'}{$page[0]}{'title'}.': '.$decoded_content->{'query'}{'pages'}{$page[0]}{'extract'}.'...'; 
 				$entry .= ' For more information visit: '.$tinyurl;
 			}
 		}
