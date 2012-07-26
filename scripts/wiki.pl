@@ -23,6 +23,7 @@ sub wiki {
 			my @page = keys %decoded_hash;
 			if ($decoded_content->{'query'}{'pages'}{$page[0]}{'extract'} eq "") {
 				$entry = $entry = $decoded_content->{'query'}{'pages'}{$page[0]}{'title'}.': Either doesn\'t exist or too many results';
+				$entry .= ' For more information visit: '.$tinyurl;
 			}
 			else {
 				$entry = $decoded_content->{'query'}{'pages'}{$page[0]}{'title'}.': '.$decoded_content->{'query'}{'pages'}{$page[0]}{'extract'}; 
