@@ -14,6 +14,7 @@ sub urbandict {
 		my $url = 'http://api.urbandictionary.com/v0/define?term='.$term;
 		my $tinyurl = bitly("http://www.urbandictionary.com/define.php?term=$term");
 		my $content = $ua->get($url);
+		my $limit = 350;
 		if (!$content->is_success) {
 			$entry = 'UrbanDictionary appears to be down or there was a problem fetching the URL';
 		}
@@ -23,11 +24,13 @@ sub urbandict {
 				$entry = 'UrbanDictionary: No results found!';
 			}
 			else {
-				$entry = $decoded_content->{'list'}[0]{'word'}.': '.$decoded_content->{'list'}[0]{'definition'}.' Example: '.
-				$decoded_content->{'list'}[0]{'example'}.' For more visit: '.$tinyurl;
+				$entry = $decoded_content->{'list'}[0]{'word'}.': '.substr($decoded_content->{'list'}[0]{'definition'},0,$limit).'...';
+				$example = 'Example: '.substr($decoded_content->{'list'}[0]{'example'},0,$limit).'... For more visit: '.$tinyurl;
+				#doing this twice because of character limit issues... 
+				send_msg($server, $target, $entry);
+				send_msg($server, $target, $example);
 			}
 		}
-		return send_msg($server, $target, $entry);
 	}
 }
 
