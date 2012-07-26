@@ -11,7 +11,7 @@ sub wiki {
 		my $entry;
 		my $indexsize = scalar(@cmd);
 		my $term = join("+",splice(@cmd,1,$indexsize));
-		my $url = 'http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=1&explaintext=1&exchars=450&titles='.$term;
+		my $url = 'http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=1&explaintext=1&exchars=400&titles='.$term;
 		my $tinyurl = bitly("http://en.wikipedia.org/wiki/$term");
 		my $content = $ua->get($url);
 		if (!$content->is_success) {
