@@ -5,6 +5,7 @@ use warnings;
 use feature ':5.10';
 use LWP::UserAgent;
 use List::MoreUtils qw{uniq};
+use URI::Escape qw( uri_escape_utf8 );
 use Encode;
 use Carp;
 use JSON;

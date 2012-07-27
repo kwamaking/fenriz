@@ -123,7 +123,7 @@ our $lastreqtime;
 our $reqcount = 0;
 
 sub _clean($) {
-	$_ = encode_utf8(shift);
+	$_ = shift;
 	s/ /+/g;
 	s/([^-A-Za-z0-9+])/%@{[sprintf "%2X", ord $1]}/g;
 	return $_;
